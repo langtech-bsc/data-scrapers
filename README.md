@@ -25,24 +25,30 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/langtech-bsc/data-scrapers.git
-cd data-scrapers```
+cd data-scrapers
+```
 
-Install dependencies for a specific scraper.
+## Install dependencies for a specific scraper.
 
 1. Example for the CCMA scraper:
 
 ```bash
 cd ccma_scraper
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
 
 2. Example for the YouTube scraper:
 
 ```bash
 cd youtube_scraper
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
 
 ---
-# Scrapers
+# Run scrapers
 ## CCMA scraper
 ---
 ## YouTube scraper
+```
+python youtube_scraper.py --youtube_url <YOUTUBE_URL>
+```
