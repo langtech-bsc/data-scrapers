@@ -47,6 +47,11 @@ pip install -r requirements.txt
 ---
 # Run scrapers
 ## CCMA scraper
+```
+python youtube_scraper.py --youtube_url <YOUTUBE_URL>
+```
+python ccma_scraper.py <json_file> <num_of_videos>
+```
 ---
 ## YouTube scraper
 ```
