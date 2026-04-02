@@ -1,0 +1,4 @@
+huggingface_hub==1.8.0
+transformers==5.4.0
+youtube-transcript-api==1.2.4
+yt-dlp==2026.3.17
