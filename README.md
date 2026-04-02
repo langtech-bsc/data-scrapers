@@ -4,8 +4,8 @@ A collection of Python scripts for scraping structured data from different platf
 
 Currently included:
 
+- **YouTube Scraper** – download YouTube videos and captions, else fallbacks to whisper transcriptions. 
 - **CCMA Scraper** – extracts media-related data from the CCMA.
-- **YouTube Scraper** – collects metadata from YouTube videos or channels.
 
 Each scraper is implemented as an independent script with its own dependencies.
 
@@ -53,5 +53,6 @@ python ccma_scraper.py <json_file> <num_of_videos>
 ---
 ## YouTube scraper
 ```
-python youtube_scraper.py --youtube_url <YOUTUBE_URL>
+python youtube_scraper.py  <YOUTUBE_ID>
 ```
+Both the downloaded audio converted to WAV format and the TSV file containing captions/transcriptions will be stored under the **ingestion** folder.
