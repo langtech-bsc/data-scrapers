@@ -30,29 +30,30 @@ cd data-scrapers
 
 ## Install dependencies for a specific scraper
 
-1. Example for the CCMA scraper:
-
-```bash
-cd ccma_scraper
-pip install -r requirements.txt
-```
-
-2. Example for the YouTube scraper:
+1. Example for the YouTube scraper:
 
 ```bash
 cd youtube_scraper
 pip install -r requirements.txt
 ```
 
+2. Example for the CCMA scraper:
+
+```bash
+cd ccma_scraper
+pip install -r requirements.txt
+```
 ---
 # Run scrapers
-## CCMA scraper
-```
-python ccma_scraper.py <json_file> <num_of_videos>
-```
----
 ## YouTube scraper
 ```
 python youtube_scraper.py  <youtube_id>
 ```
 Both the downloaded audio converted to WAV format and the TSV file containing captions/transcriptions will be stored under the **ingestion** folder.
+
+---
+
+## CCMA scraper (WIP)
+```
+python ccma_scraper.py <json_file> <num_of_videos>
+```
