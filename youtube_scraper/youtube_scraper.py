@@ -111,7 +111,7 @@ def fetch_youtube_captions(video_id: str) -> str:
 
 def transcribe_via_whisper_local(wav_path: Path) -> str:
     """Run an offline Whisper model."""
-    print(f"🔈  Transcribing locally with Whisper: {wav_path.name}")
+    print(f"Transcribing locally with Whisper: {wav_path.name}")
     device = "cuda" if torch.cuda.is_available() else "cpu"
     whisper_pipe = pipeline(
         "automatic-speech-recognition",
@@ -149,13 +149,13 @@ def main() -> None:
     try:
         licence_code, video_id = detect_license(args.youtube_url)
     except Exception as exc:  # noqa: BLE001
-        print(f"❌ Could not determine licence: {exc}")
+        print(f"Could not determine licence: {exc}")
         sys.exit(1)
 
-    print(f"🎫  Licence for {video_id}: {licence_code}")
+    print(f"Licence for {video_id}: {licence_code}")
 
     if licence_code.lower() in rejected:
-        print(f"🚫 Ingestion blocked (licence '{licence_code}' "
+        print(f"Ingestion blocked (licence '{licence_code}' "
               f"is in --reject-license list).")
         sys.exit(0)                       # Exit *without* error: intentional skip.
 
@@ -163,7 +163,7 @@ def main() -> None:
     try:
         wav_path = download_audio_as_wav(args.youtube_url, video_id)
     except Exception as exc:  # noqa: BLE001
-        print(f"❌ Failed to download audio: {exc}")
+        print(f"Failed to download audio: {exc}")
         sys.exit(1)
 
     # 2) Captions or Whisper
@@ -171,11 +171,11 @@ def main() -> None:
         transcript_text = fetch_youtube_captions(video_id)
         print("✓ Retrieved official captions")
     except Exception:
-        print("⚠️  No captions found → Whisper fallback")
+        print("No captions found → Whisper fallback")
         try:
             transcript_text = transcribe_via_whisper_local(wav_path)
         except Exception as exc:  # noqa: BLE001
-            print(f"❌ Whisper transcription failed: {exc}")
+            print(f"Whisper transcription failed: {exc}")
             sys.exit(1)
 
     # 3) Write TSV
@@ -183,7 +183,7 @@ def main() -> None:
     with tsv_path.open("w", encoding="utf-8") as fp:
         fp.write(f"{wav_path.resolve()}\t{transcript_text}\n")
 
-    print(f"✅ Wrote TSV → {tsv_path}")
+    print(f"Wrote TSV → {tsv_path}")
 
 
 if __name__ == "__main__":
