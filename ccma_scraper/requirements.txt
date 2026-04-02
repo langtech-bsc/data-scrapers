@@ -1,0 +1,7 @@
+audio_extract==0.7.0
+bs4==0.0.2
+packaging==26.0
+pandas==3.0.2
+tqdm==4.67.3
+typing_extensions==4.15.0
+wget==3.2
